@@ -1,0 +1,12 @@
+# admin permission
+sudo: required 
+
+services:
+  - docker
+
+before_install: 
+  - docker build -t zhifaq/Docker-react -f Dockerfile.dev .
+
+script: 
+  - docker run -e CI=true zhifaq/Docker-react npm run test
+
