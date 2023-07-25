@@ -1,0 +1,21 @@
+version: '3'
+
+services:
+  react-app:
+    ports:
+      - '3000:3000'
+    volumes:
+      - /home/zhifaq/node_modules
+      - .:/home/zhifaq
+    build:
+      context: .
+      dockerfile: Dockerfile.dev
+
+  react-app-test:
+    build:
+      context: .
+      dockerfile: Dockerfile.dev
+    volumes:
+      - /home/zhifaq/node_modules
+      - .:/home/zhifaq
+    command: ["npm", "run", "test"]
